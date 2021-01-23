@@ -1,0 +1,274 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "newproj": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "root": "projects/newproj",
+      "sourceRoot": "projects/newproj/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/newproj",
+            "index": "projects/newproj/src/index.html",
+            "main": "projects/newproj/src/main.ts",
+            "polyfills": "projects/newproj/src/polyfills.ts",
+            "tsConfig": "projects/newproj/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/newproj/src/favicon.ico",
+              "projects/newproj/src/assets"
+            ],
+            "styles": ["projects/newproj/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/newproj/src/environments/environment.ts",
+                  "with": "projects/newproj/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "newproj:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "newproj:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "newproj:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/newproj/src/test.ts",
+            "polyfills": "projects/newproj/src/polyfills.ts",
+            "tsConfig": "projects/newproj/tsconfig.spec.json",
+            "karmaConfig": "projects/newproj/karma.conf.js",
+            "assets": [
+              "projects/newproj/src/favicon.ico",
+              "projects/newproj/src/assets"
+            ],
+            "styles": ["projects/newproj/src/styles.css"],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/newproj/tsconfig.app.json",
+              "projects/newproj/tsconfig.spec.json",
+              "projects/newproj/e2e/tsconfig.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/newproj/e2e/protractor.conf.js",
+            "devServerTarget": "newproj:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "newproj:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "fitness-tracker": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:component": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "root": "projects/fitness-tracker",
+      "sourceRoot": "projects/fitness-tracker/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/fitness-tracker",
+            "index": "projects/fitness-tracker/src/index.html",
+            "main": "projects/fitness-tracker/src/main.ts",
+            "polyfills": "projects/fitness-tracker/src/polyfills.ts",
+            "tsConfig": "projects/fitness-tracker/tsconfig.app.json",
+            "aot": true,
+            "allowedCommonJsDependencies": ["hammerjs"],
+            "assets": [
+              "projects/fitness-tracker/src/favicon.ico",
+              "projects/fitness-tracker/src/assets"
+            ],
+            "styles": [
+              "projects/fitness-tracker/src/styles.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/fitness-tracker/src/environments/environment.ts",
+                  "with": "projects/fitness-tracker/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "fitness-tracker:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "fitness-tracker:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "fitness-tracker:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/fitness-tracker/src/test.ts",
+            "polyfills": "projects/fitness-tracker/src/polyfills.ts",
+            "tsConfig": "projects/fitness-tracker/tsconfig.spec.json",
+            "karmaConfig": "projects/fitness-tracker/karma.conf.js",
+            "assets": [
+              "projects/fitness-tracker/src/favicon.ico",
+              "projects/fitness-tracker/src/assets"
+            ],
+            "styles": ["projects/fitness-tracker/src/styles.css"],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/fitness-tracker/tsconfig.app.json",
+              "projects/fitness-tracker/tsconfig.spec.json",
+              "projects/fitness-tracker/e2e/tsconfig.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/fitness-tracker/e2e/protractor.conf.js",
+            "devServerTarget": "fitness-tracker:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "fitness-tracker:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "fitness-tracker"
+}

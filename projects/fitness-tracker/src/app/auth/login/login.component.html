@@ -1,0 +1,24 @@
+<section class="signup-form">
+  <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input type="email" matInput name="email" ngModel required email #emailInput="ngModel">
+      <mat-hint>ex: example@gmail.com</mat-hint>
+      <mat-error *ngIf="emailInput.hasError('required')">Field must not be empty</mat-error>
+      <mat-error *ngIf="!emailInput.hasError('required')">Invalid E-mail</mat-error>
+    </mat-form-field>
+
+    <mat-form-field hintLabel="Should be at least 6 character">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput name="password" ngModel required minlength="6" #pwInput="ngModel">
+      <mat-hint align="end"> {{pwInput.value?.length}} / 6</mat-hint>
+      <mat-error>Has to be at least 6 characters long</mat-error>
+    </mat-form-field>
+
+    <button *ngIf="!isLoading" [disabled]="f.invalid" mat-raised-button color="accent" type="submit">Submit</button>
+    <button *ngIf="!isLoading" mat-raised-button type="button" (click)="signInWithGoogle()">
+      <img style="padding-left: 7px; padding-right: 7px;" src="https://img.icons8.com/fluent/32/000000/google-logo.png"/>
+    </button>
+      <mat-spinner *ngIf="isLoading"  color="accent"></mat-spinner>
+  </form>
+</section>
