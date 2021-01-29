@@ -1,0 +1,6 @@
+mat-dialog-actions {
+  display: flex;
+}
+.flex1 {
+  flex: 1 1;
+}

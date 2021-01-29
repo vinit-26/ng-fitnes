@@ -310,6 +310,7 @@
             "polyfills": "projects/posts-proj/src/polyfills.ts",
             "tsConfig": "projects/posts-proj/tsconfig.app.json",
             "aot": true,
+            "allowedCommonJsDependencies": ["hammerjs"],
             "assets": [
               "projects/posts-proj/src/favicon.ico",
               "projects/posts-proj/src/assets"
@@ -375,7 +376,10 @@
               "projects/posts-proj/src/favicon.ico",
               "projects/posts-proj/src/assets"
             ],
-            "styles": ["projects/posts-proj/src/styles.css"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "projects/posts-proj/src/styles.css"
+            ],
             "scripts": []
           }
         },
